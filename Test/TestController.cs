@@ -6,6 +6,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Profile.CSharp.Microservice
 {
+    public class CustomType
+    {
+        public int Prop1 { get; set; }
+        public string Prop2 { get; set; }
+        public DateTime Prop3 { get; set; }
+    }
+
     [Route("[controller]")]
     [ApiController]
     public class TestController : ControllerBase
@@ -37,6 +44,19 @@ namespace Profile.CSharp.Microservice
                 items,
                 success = true
             });
+        }
+
+        [HttpGet("json/custom")]
+        public IActionResult GetJsonCustom()
+        {
+            var custom = new CustomType
+            {
+                Prop1 = 1,
+                Prop2 = "testing",
+                Prop3 = DateTime.Now,
+            };
+
+            return Ok(custom);
         }
     }
 }
