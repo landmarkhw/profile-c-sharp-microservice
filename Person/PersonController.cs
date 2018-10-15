@@ -20,7 +20,8 @@ namespace Profile.CSharp.Microservice
         public IActionResult Get(long id)
         {
             var person = personRepository.Get(id);
-            return Ok(person);
+            var data = new Envelope<Person>(person);
+            return Ok(data);
         }
     }
 }
