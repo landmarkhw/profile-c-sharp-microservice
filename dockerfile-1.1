@@ -1,0 +1,12 @@
+FROM microsoft/dotnet:1.1-sdk
+WORKDIR /app
+
+# Copy files to the container
+COPY ./ ./
+
+# Restore packages
+RUN dotnet restore ./profile-c-sharp-microservice-netcore1.1.csproj
+RUN dotnet publish -c Release ./profile-c-sharp-microservice-netcore1.1.csproj -o out
+
+# Run the app
+CMD dotnet ./out/profile-c-sharp-microservice-netcore1.1.dll

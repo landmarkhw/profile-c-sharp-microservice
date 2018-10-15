@@ -14,15 +14,12 @@ namespace Profile.CSharp.Microservice
     }
 
     [Route("[controller]")]
-    [ApiController]
     public class TestController : ControllerBase
     {
-        [HttpGet("json/simple")]
-        public IActionResult GetJsonSimple()
+        [HttpGet("json/hello-world")]
+        public IActionResult GetHelloWorld()
         {
-            return Ok(new {
-                success = true
-            });
+            return Ok("Hello, world!");
         }
 
         [HttpGet("json/complex")]
@@ -31,15 +28,18 @@ namespace Profile.CSharp.Microservice
             var items = new object[1000];
             var now = DateTime.Now;
 
-            for (var i = 0; i < 1000; i++) {
-                items[i] = new {
+            for (var i = 0; i < 1000; i++)
+            {
+                items[i] = new
+                {
                     id = i,
                     another = "thing",
                     ts = now,
                 };
             }
 
-            return Ok(new {
+            return Ok(new
+            {
                 id = 1,
                 items,
                 success = true
@@ -57,6 +57,15 @@ namespace Profile.CSharp.Microservice
             };
 
             return Ok(custom);
+        }
+
+        [HttpGet("json/simple")]
+        public IActionResult GetJsonSimple()
+        {
+            return Ok(new
+            {
+                success = true
+            });
         }
     }
 }

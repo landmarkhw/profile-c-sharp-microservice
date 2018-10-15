@@ -7,14 +7,14 @@ using Microsoft.AspNetCore.Mvc;
 namespace Profile.CSharp.Microservice
 {
     [Route("[controller]")]
-    [ApiController]
     public class StatusController : ControllerBase
     {
         [HttpGet]
-        public ActionResult<Person> Get()
+        public IActionResult Get()
         {
             var success = Db.Test();
-            return Ok(new {
+            return Ok(new
+            {
                 Database = success
             });
         }
