@@ -41,8 +41,7 @@ namespace Profile.CSharp.Microservice
         {
             services.AddTransient<PersonRepository>();
 
-            //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            services.AddMvcCore();
+            services.AddMvc();
         }
     }
 }

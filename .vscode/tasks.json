@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/profile-c-sharp-microservice.csproj"
+                "${workspaceFolder}/profile-c-sharp-microservice-netcore2.csproj"
             ],
             "problemMatcher": "$msCompile"
         }
